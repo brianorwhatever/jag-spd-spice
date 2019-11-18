@@ -23,6 +23,7 @@ using System.Net.Http;
 using Serilog;
 using Serilog.Exceptions;
 using System.Threading.Tasks;
+using Microsoft.OpenApi.Models;
 
 [assembly: ApiController]
 namespace Gov.Jag.Spice.CarlaSync
@@ -44,6 +45,7 @@ namespace Gov.Jag.Spice.CarlaSync
 
             services.AddMvc(config =>
             {
+                config.EnableEndpointRouting = false;
                 if (!string.IsNullOrEmpty(Configuration["JWT_TOKEN_KEY"]))
                 {
                     var policy = new AuthorizationPolicyBuilder()
@@ -51,13 +53,13 @@ namespace Gov.Jag.Spice.CarlaSync
                                  .Build();
                     config.Filters.Add(new AuthorizeFilter(policy));
                 }
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             // Other ConfigureServices() code...
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "JAG SPICE to CARLA Transfer Service", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "JAG SPICE to CARLA Transfer Service", Version = "v1" });
                 c.DescribeAllEnumsAsStrings();
                 c.SchemaFilter<EnumTypeSchemaFilter>();
             });
