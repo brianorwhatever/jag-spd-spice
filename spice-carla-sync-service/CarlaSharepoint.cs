@@ -14,6 +14,7 @@ using SpiceCarlaSync;
 using SpiceCarlaSync.models;
 using Microsoft.Rest;
 using static Gov.Jag.Spice.Interfaces.SharePoint.FileManager;
+using Newtonsoft.Json;
 
 namespace Gov.Lclb.Cllb.Interfaces
 {
@@ -229,6 +230,7 @@ namespace Gov.Lclb.Cllb.Interfaces
                 catch (HttpOperationException httpOperationException)
                 {
                     _logger.LogError(httpOperationException, "Failed to send application results to Carla.");
+                    _logger.LogError(httpOperationException.Request.Content);
                     _logger.LogError(httpOperationException.Response.Content);
                 }
             }
@@ -245,6 +247,7 @@ namespace Gov.Lclb.Cllb.Interfaces
                 catch (HttpOperationException httpOperationException)
                 {
                     _logger.LogError(httpOperationException, "Failed to send worker results to Carla.");
+                    _logger.LogError(httpOperationException.Request.Content);
                     _logger.LogError(httpOperationException.Response.Content);
                 }
             }

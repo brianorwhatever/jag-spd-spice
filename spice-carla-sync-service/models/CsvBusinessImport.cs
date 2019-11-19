@@ -1,23 +1,20 @@
-﻿using System;
-using Gov.Lclb.Cllb.Interfaces.Models;
-
-namespace SpiceCarlaSync.models
+﻿namespace SpiceCarlaSync.models
 {
     public class CsvBusinessImport
     {
         public string LcrbBusinessJobId { get; set; }
         public string Result { get; set; }
         
-        public static SpiceApplicationStatus? TranslateStatus(string result)
+        public static string? TranslateStatus(string result)
         {
             switch(result)
             {
                 case "PASS":
-                    return SpiceApplicationStatus.Cleared;
+                    return SpiceApplicationStatusEnum.Cleared.ToString();
                 case "FAIL":
-                    return SpiceApplicationStatus.NotCleared;
+                    return SpiceApplicationStatusEnum.NotCleared.ToString();
                 case "WITHDRAWN":
-                    return SpiceApplicationStatus.Withdrawn;
+                    return SpiceApplicationStatusEnum.Withdrawn.ToString();
                 default:
                     return null;
             }

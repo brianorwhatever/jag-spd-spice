@@ -308,7 +308,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             };
             CustomInitialize();
         }
-        /// <param name='results'>
+        /// <param name='body'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -322,7 +322,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> ReceiveApplicationScreeningResultWithHttpMessagesAsync(IList<CompletedApplicationScreening> results = default(IList<CompletedApplicationScreening>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> ReceiveApplicationScreeningResultWithHttpMessagesAsync(IList<CompletedApplicationScreening> body = default(IList<CompletedApplicationScreening>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -331,7 +331,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("results", results);
+                tracingParameters.Add("body", body);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "ReceiveApplicationScreeningResult", tracingParameters);
             }
@@ -360,11 +360,11 @@ namespace Gov.Lclb.Cllb.Interfaces
 
             // Serialize Request
             string _requestContent = null;
-            if(results != null)
+            if(body != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(results, SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Credentials != null)
@@ -564,7 +564,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string>> GetTokenWithHttpMessagesAsync(string secret = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> AuthenticationWithHttpMessagesAsync(string secret = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -575,7 +575,7 @@ namespace Gov.Lclb.Cllb.Interfaces
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("secret", secret);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "GetToken", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "Authentication", tracingParameters);
             }
             // Construct URL
             var _baseUrl = BaseUri.AbsoluteUri;
@@ -682,7 +682,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             return _result;
         }
 
-        /// <param name='results'>
+        /// <param name='body'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -696,7 +696,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> ReceiveWorkerScreeningResultsWithHttpMessagesAsync(IList<CompletedWorkerScreening> results = default(IList<CompletedWorkerScreening>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> ReceiveWorkerScreeningResultsWithHttpMessagesAsync(IList<CompletedWorkerScreening> body = default(IList<CompletedWorkerScreening>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -705,7 +705,7 @@ namespace Gov.Lclb.Cllb.Interfaces
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("results", results);
+                tracingParameters.Add("body", body);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "ReceiveWorkerScreeningResults", tracingParameters);
             }
@@ -734,11 +734,11 @@ namespace Gov.Lclb.Cllb.Interfaces
 
             // Serialize Request
             string _requestContent = null;
-            if(results != null)
-            {
-                _requestContent = SafeJsonConvert.SerializeObject(results, SerializationSettings);
+            if(body != null)
+            {    
+                _requestContent = SafeJsonConvert.SerializeObject(body, SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json-patch+json; charset=utf-8");
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Credentials != null)

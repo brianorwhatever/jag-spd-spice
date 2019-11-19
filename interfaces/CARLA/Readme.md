@@ -35,9 +35,4 @@ csharp:
   sync-methods: all
   generate-empty-classes: true
   namespace: Gov.Lclb.Cllb.Interfaces
-
-directive:
-  - from: swagger-document
-    where: $.paths.*.*
-    transform: $.operationId = `$($.tags[0])`
 ```

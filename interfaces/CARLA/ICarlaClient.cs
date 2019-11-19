@@ -40,7 +40,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         ServiceClientCredentials Credentials { get; }
 
 
-        /// <param name='results'>
+        /// <param name='body'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -48,7 +48,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse> ReceiveApplicationScreeningResultWithHttpMessagesAsync(IList<CompletedApplicationScreening> results = default(IList<CompletedApplicationScreening>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ReceiveApplicationScreeningResultWithHttpMessagesAsync(IList<CompletedApplicationScreening> body = default(IList<CompletedApplicationScreening>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='applicationIdString'>
         /// </param>
@@ -70,9 +70,9 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<string>> GetTokenWithHttpMessagesAsync(string secret = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> AuthenticationWithHttpMessagesAsync(string secret = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        /// <param name='results'>
+        /// <param name='body'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -80,7 +80,7 @@ namespace Gov.Lclb.Cllb.Interfaces
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse> ReceiveWorkerScreeningResultsWithHttpMessagesAsync(IList<CompletedWorkerScreening> results = default(IList<CompletedWorkerScreening>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> ReceiveWorkerScreeningResultsWithHttpMessagesAsync(IList<CompletedWorkerScreening> body = default(IList<CompletedWorkerScreening>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='workerIdString'>
         /// </param>

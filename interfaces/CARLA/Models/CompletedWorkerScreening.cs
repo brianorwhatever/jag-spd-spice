@@ -25,7 +25,7 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
         /// <param name="result">Possible values include: 'Cleared',
         /// 'NotCleared', 'FitAndProper', 'NotFitAndProper',
         /// 'Withdrawn'</param>
-        public CompletedWorkerScreening(string spdJobId = default(string), string recordIdentifier = default(string), SpiceApplicationStatus? result = default(SpiceApplicationStatus?), Worker worker = default(Worker))
+        public CompletedWorkerScreening(string spdJobId = default(string), string recordIdentifier = default(string), string result = default(string), Worker worker = default(Worker))
         {
             SpdJobId = spdJobId;
             RecordIdentifier = recordIdentifier;
@@ -54,7 +54,7 @@ namespace Gov.Lclb.Cllb.Interfaces.Models
         /// 'FitAndProper', 'NotFitAndProper', 'Withdrawn'
         /// </summary>
         [JsonProperty(PropertyName = "result")]
-        public SpiceApplicationStatus? Result { get; set; }
+        public string Result { get; set; }
 
         /// <summary>
         /// </summary>

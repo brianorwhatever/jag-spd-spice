@@ -93,7 +93,7 @@ namespace Gov.Jag.Spice.CarlaSync
             {
                 services.AddTransient(serviceProvider =>
                 {
-                    IDynamicsClient client = DynamicsSetupUtil.SetupDynamics(Configuration);
+                    IDynamicsClient client = Interfaces.DynamicsSetupUtil.SetupDynamics(Configuration);
                     return client;
                 });
             }
